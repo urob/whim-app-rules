@@ -19,70 +19,70 @@ void ApplicationRules(IContext context)
 {
 
     // 1Password
-    context.FilterManager.AddProcessNameFilter("1Password");
+    context.FilterManager.AddProcessFileNameFilter("1Password.exe");
 
     // Ableton Live
     context.FilterManager.AddWindowClassFilter("AbletonVstPlugClass");  // Targets VST2 windows
     context.FilterManager.AddWindowClassFilter("Vst3PlugWindow");  // Targets VST3 windows
 
     // Affinity Photo 2
-    context.FilterManager.AddProcessNameFilter("Photo");
+    context.FilterManager.AddProcessFileNameFilter("Photo.exe");
 
     // AutoHotkey
     context.FilterManager.AddTitleFilter("Window Spy");
-    context.FilterManager.AddProcessNameFilter("AutoHotkeyUX");
+    context.FilterManager.AddProcessFileNameFilter("AutoHotkeyUX.exe");
 
     // Bloxstrap
-    context.FilterManager.AddProcessNameFilter("Bloxstrap");
+    context.FilterManager.AddProcessFileNameFilter("Bloxstrap.exe");
 
     // Calculator
     context.FilterManager.AddTitleFilter("Calculator");
 
     // Citrix Receiver
-    context.FilterManager.AddProcessNameFilter("SelfService");
+    context.FilterManager.AddProcessFileNameFilter("SelfService.exe");
 
     // Credential Manager UI Host
-    context.FilterManager.AddProcessNameFilter("CredentialUIBroker");  // Targets the Windows popup prompting you for a PIN instead of a password on 1Password etc.
+    context.FilterManager.AddProcessFileNameFilter("CredentialUIBroker.exe");  // Targets the Windows popup prompting you for a PIN instead of a password on 1Password etc.
 
     // Delphi applications
     context.FilterManager.AddWindowClassFilter("TApplication");  // Target hidden window spawned by Delphi applications
     context.FilterManager.AddWindowClassFilter("TWizardForm");  // Target Inno Setup installers
 
     // Dropbox
-    context.FilterManager.AddProcessNameFilter("Dropbox");
+    context.FilterManager.AddProcessFileNameFilter("Dropbox.exe");
 
     // Elephicon
-    context.FilterManager.AddProcessNameFilter("Elephicon");
+    context.FilterManager.AddProcessFileNameFilter("Elephicon.exe");
 
     // Elgato Camera Hub
-    context.FilterManager.AddProcessNameFilter("Camera Hub");
+    context.FilterManager.AddProcessFileNameFilter("Camera Hub.exe");
 
     // Elgato Control Center
-    context.FilterManager.AddProcessNameFilter("ControlCenter");
+    context.FilterManager.AddProcessFileNameFilter("ControlCenter.exe");
 
     // Elgato Wave Link
-    context.FilterManager.AddProcessNameFilter("WaveLink");
+    context.FilterManager.AddProcessFileNameFilter("WaveLink.exe");
 
     // GOG Galaxy
     context.FilterManager.AddWindowClassFilter("Chrome_RenderWidgetHostHWND");  // Targets a hidden window spawned by GOG Galaxy
 
     // Google Drive
-    context.FilterManager.AddProcessNameFilter("GoogleDriveFS");
+    context.FilterManager.AddProcessFileNameFilter("GoogleDriveFS.exe");
 
     // IntelliJ IDEA
     context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and floating windows
 
     // Keyviz
-    context.FilterManager.AddProcessNameFilter("keyviz");
+    context.FilterManager.AddProcessFileNameFilter("keyviz.exe");
 
     // Logi Bolt
-    context.FilterManager.AddProcessNameFilter("LogiBolt");
+    context.FilterManager.AddProcessFileNameFilter("LogiBolt.exe");
 
     // LogiTune
-    context.FilterManager.AddProcessNameFilter("LogiTune");
+    context.FilterManager.AddProcessFileNameFilter("LogiTune.exe");
 
     // Logitech Options
-    context.FilterManager.AddProcessNameFilter("LogiOptionsUI");
+    context.FilterManager.AddProcessFileNameFilter("LogiOptionsUI.exe");
 
     // Microsoft Active Accessibility
     context.FilterManager.AddWindowClassFilter("#32770");  // Dialog Box
@@ -94,7 +94,7 @@ void ApplicationRules(IContext context)
     context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
 
     // Microsoft PC Manager
-    context.FilterManager.AddProcessNameFilter("MSPCManager");
+    context.FilterManager.AddProcessFileNameFilter("MSPCManager.exe");
 
     // Microsoft PowerPoint
     context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
@@ -110,24 +110,24 @@ void ApplicationRules(IContext context)
     context.FilterManager.AddWindowClassFilter("MozillaTaskbarPreviewClass");  // Targets invisible windows spawned by Firefox to show tab previews in the taskbar
 
     // NohBoard
-    context.FilterManager.AddProcessNameFilter("NohBoard");
+    context.FilterManager.AddProcessFileNameFilter("NohBoard.exe");
 
     // OneDrive
     context.FilterManager.AddWindowClassFilter("OneDriveReactNativeWin32WindowClass");
 
     // Paradox Launcher
-    context.FilterManager.AddProcessNameFilter("Paradox Launcher");
+    context.FilterManager.AddProcessFileNameFilter("Paradox Launcher.exe");
 
     // Playnite
-    context.FilterManager.AddProcessNameFilter("Playnite.FullscreenApp");  // Target fullscreen app
+    context.FilterManager.AddProcessFileNameFilter("Playnite.FullscreenApp.exe");  // Target fullscreen app
 
     // PowerToys
-    context.FilterManager.AddProcessNameFilter("PowerToys.ColorPickerUI");  // Target color picker dialog
-    context.FilterManager.AddProcessNameFilter("PowerToys.ImageResizer");  // Target image resizer dialog
-    context.FilterManager.AddProcessNameFilter("PowerToys.Peek.UI");  // Target Peek popup
+    context.FilterManager.AddProcessFileNameFilter("PowerToys.ColorPickerUI.exe");  // Target color picker dialog
+    context.FilterManager.AddProcessFileNameFilter("PowerToys.ImageResizer.exe");  // Target image resizer dialog
+    context.FilterManager.AddProcessFileNameFilter("PowerToys.Peek.UI.exe");  // Target Peek popup
 
     // Process Hacker
-    context.FilterManager.AddProcessNameFilter("ProcessHacker");
+    context.FilterManager.AddProcessFileNameFilter("ProcessHacker.exe");
 
     // PyCharm
     context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and detached windows
@@ -138,23 +138,23 @@ void ApplicationRules(IContext context)
     context.FilterManager.AddTitleFilter("语音通话");
 
     // QuickLook
-    context.FilterManager.AddProcessNameFilter("QuickLook");
+    context.FilterManager.AddProcessFileNameFilter("QuickLook.exe");
 
     // RepoZ
-    context.FilterManager.AddProcessNameFilter("RepoZ");
+    context.FilterManager.AddProcessFileNameFilter("RepoZ.exe");
 
     // Rider
     context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and floating windows
     context.FilterManager.AddTitleFilter("PopupMessageWindow");  // Targets JetBrains IDE popups
 
     // RoundedTB
-    context.FilterManager.AddProcessNameFilter("RoundedTB");
+    context.FilterManager.AddProcessFileNameFilter("RoundedTB.exe");
 
     // RustRover
     context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and floating windows
 
     // Sideloadly
-    context.FilterManager.AddProcessNameFilter("sideloadly");
+    context.FilterManager.AddProcessFileNameFilter("sideloadly.exe");
 
     // Slack
     context.FilterManager.AddWindowClassFilter("Chrome_RenderWidgetHostHWND");  // Targets a hidden window spawned by Slack
@@ -167,13 +167,13 @@ void ApplicationRules(IContext context)
     context.FilterManager.AddWindowClassFilter("obj_Form");  // Target installer
 
     // SnippingTool
-    context.FilterManager.AddProcessNameFilter("SnippingTool");
+    context.FilterManager.AddProcessFileNameFilter("SnippingTool.exe");
 
     // Steam Beta
     context.FilterManager.AddTitleFilter("notificationtoasts_");  // Target notification toast popups
 
     // System Informer
-    context.FilterManager.AddProcessNameFilter("SystemInformer");
+    context.FilterManager.AddProcessFileNameFilter("SystemInformer.exe");
 
     // SystemSettings
     context.FilterManager.AddWindowClassFilter("Shell_Dialog");
@@ -182,23 +182,23 @@ void ApplicationRules(IContext context)
     context.FilterManager.AddWindowClassFilter("TaskManagerWindow");
 
     // TouchCursor
-    context.FilterManager.AddProcessNameFilter("tcconfig");
+    context.FilterManager.AddProcessFileNameFilter("tcconfig.exe");
 
     // TranslucentTB
-    context.FilterManager.AddProcessNameFilter("TranslucentTB");
+    context.FilterManager.AddProcessFileNameFilter("TranslucentTB.exe");
 
     // WinZip (32-bit)
-    context.FilterManager.AddProcessNameFilter("winzip32");
+    context.FilterManager.AddProcessFileNameFilter("winzip32.exe");
 
     // WinZip (64-bit)
-    context.FilterManager.AddProcessNameFilter("winzip64");
+    context.FilterManager.AddProcessFileNameFilter("winzip64.exe");
 
     // Windows Explorer
     context.FilterManager.AddWindowClassFilter("OperationStatusWindow");  // Targets copy/move operation windows
     context.FilterManager.AddTitleFilter("Control Panel");
 
     // Windows Installer
-    context.FilterManager.AddProcessNameFilter("msiexec");
+    context.FilterManager.AddProcessFileNameFilter("msiexec.exe");
 
     // Windows Subsystem for Android
     context.FilterManager.AddWindowClassFilter("android(splash)");  // Targets splash/startup screen
@@ -207,15 +207,15 @@ void ApplicationRules(IContext context)
     context.FilterManager.AddTitleFilter("Hotkey sink");  // Targets a hidden window spawned by Wox
 
     // Zoom
-    context.FilterManager.AddProcessNameFilter("Zoom");
+    context.FilterManager.AddProcessFileNameFilter("Zoom.exe");
 
     // paint.net
-    context.FilterManager.AddProcessNameFilter("paintdotnet");
+    context.FilterManager.AddProcessFileNameFilter("paintdotnet.exe");
 
     // pinentry
-    context.FilterManager.AddProcessNameFilter("pinentry");
+    context.FilterManager.AddProcessFileNameFilter("pinentry.exe");
 
     // ueli
-    context.FilterManager.AddProcessNameFilter("ueli");
+    context.FilterManager.AddProcessFileNameFilter("ueli.exe");
 
 }

@@ -100,8 +100,7 @@ class FloatRule:
             case 'Class':
                 command = 'AddWindowClassFilter'
             case 'Exe':
-                command = 'AddProcessNameFilter'
-                self.id = self.id.rsplit('.', 1)[0]  # truncate file extension to match ProcessName
+                command = 'AddProcessFileNameFilter'
             case 'Title':
                 command = 'AddTitleFilter'
             case _:
