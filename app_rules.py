@@ -4,10 +4,10 @@ import yaml
 
 # set up paths
 _root = Path(__file__).parents[0]
-_outfile = _root / 'app_rules.csx'
+_outfile = _root / "app_rules.csx"
 
 # link to komorebi rules file
-_url = 'https://raw.githubusercontent.com/LGUG2Z/komorebi-application-specific-configuration/master/applications.yaml'
+_url = "https://raw.githubusercontent.com/LGUG2Z/komorebi-application-specific-configuration/master/applications.yaml"
 
 CSX_HEADER = """\
 /* Application Rules for Whim
@@ -52,25 +52,25 @@ void ApplicationRules(IContext context)
 
 
 def write(content, append=True, indent=True):
-    mode = 'a' if append else 'w'
-    indent = ' ' * 4 if indent else ''
+    mode = "a" if append else "w"
+    indent = " " * 4 if indent else ""
     with open(_outfile, mode) as o:
-        o.write(indent + content + '\n')
+        o.write(indent + content + "\n")
 
 
 class GetRules:
     def __init__(self, url):
         self.url = url
-        self.out = _root / 'temp_komorebi_rules.yaml'
+        self.out = _root / "temp_komorebi_rules.yaml"
         self.rules = None
 
     def download(self):
         response = get(self.url)
-        with open(self.out, 'wb') as f:
+        with open(self.out, "wb") as f:
             f.write(response.content)
 
     def load(self):
-        with open(self.out, 'r') as f:
+        with open(self.out, "r") as f:
             self.rules = yaml.safe_load(f)
 
 
@@ -84,7 +84,7 @@ class ParseRules:
 
     @staticmethod
     def footer():
-        write('\n}', indent=False)
+        write("\n}", indent=False)
 
     def parse_and_write_all_rules(self):
         for app in self.komorebi_rules:
@@ -98,45 +98,45 @@ class FloatRules:
         self.float_rules = float_rules
 
     def write_rules(self):
-        write('', indent=False)
-        write('// ' + self.name)
+        write("", indent=False)
+        write("// " + self.name)
         for r in self.float_rules:
             FloatRule(r).add_rule()
 
 
 class FloatRule:
     def __init__(self, rule):
-        self.kind = rule['kind']
-        self.id = rule['id']
-        self.matching_strategy = rule[_] if (_ := 'matching_strategy') in rule else None
-        self.comment = rule[_] if (_ := 'comment') in rule else None
+        self.kind = rule["kind"]
+        self.id = rule["id"]
+        self.matching_strategy = rule[_] if (_ := "matching_strategy") in rule else None
+        self.comment = rule[_] if (_ := "comment") in rule else None
 
         # Check for future unsupported matching strategies
         # Note: if regex is ever used for Title, we can implement it via "AddTitleMatchFilter"
-        if self.matching_strategy and self.matching_strategy != 'Equals':
+        if self.matching_strategy and self.matching_strategy != "Equals":
             print('Matching strategy "{_}" unsupported')
 
     def add_rule(self):
         match self.kind:
-            case 'Class':
-                command = 'AddWindowClassFilter'
-            case 'Exe':
-                command = 'AddProcessFileNameFilter'
-            case 'Title':
-                command = 'AddTitleFilter'
+            case "Class":
+                command = "AddWindowClassFilter"
+            case "Exe":
+                command = "AddProcessFileNameFilter"
+            case "Title":
+                command = "AddTitleFilter"
             case _:
-                print('Undefined kind:' + self.kind)
+                print("Undefined kind:" + self.kind)
         # check for duplicates
-        content = ''.join(['context.FilterManager.', command, '("', self.id, '");'])
+        content = "".join(["context.FilterManager.", command, '("', self.id, '");'])
         if self.id not in _processed[self.kind]:
-            comment = '  // ' + self.comment if self.comment else ''
+            comment = "  // " + self.comment if self.comment else ""
             write(content + comment)
             _processed[self.kind] += [self.id]
         else:
-            write(' '.join(('//', content, ' // duplicate rule')))
+            write(" ".join(("//", content, " // duplicate rule")))
 
 
-_processed = {'Class': [], 'Exe': [], 'Title': []}
+_processed = {"Class": [], "Exe": [], "Title": []}
 
 # Load komorebi rules
 rules = GetRules(_url)
