@@ -1,0 +1,31 @@
+name: Update application rules
+
+on:
+  schedule:
+  - cron: "30 11 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-app-rules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v4
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - name: install dependencies
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: execute py script
+        run: |
+          python app_rules.py
+      - name: create pull request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.PAT }}
+          commit-message: Update dependencies
+          title: Update application rules
+          body: This is an auto-generated PR with application rule updates
+          branch: update-app-rules
