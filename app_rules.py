@@ -114,7 +114,7 @@ class FloatRule:
         # Check for future unsupported matching strategies
         # Note: if regex is ever used for Title, we can implement it via "AddTitleMatchFilter"
         if self.matching_strategy and self.matching_strategy != "Equals":
-            print('Matching strategy "{_}" unsupported')
+            raise RuntimeError('Matching strategy "{_}" unsupported')
 
     def add_rule(self):
         match self.kind:
@@ -125,7 +125,7 @@ class FloatRule:
             case "Title":
                 command = "AddTitleFilter"
             case _:
-                print("Undefined kind:" + self.kind)
+                raise RuntimeError("Undefined kind :" + self.kind)
         # check for duplicates
         content = "".join(["context.FilterManager.", command, '("', self.id, '");'])
         if self.id not in _processed[self.kind]:
