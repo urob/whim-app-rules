@@ -23,19 +23,19 @@ CSX_HEADER = """\
  * This file was generated from data with the following license:
  *
  * MIT License
- * 
+ *
  * Copyright (c) 2021 Jade Iqbal
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -51,10 +51,11 @@ void ApplicationRules(IContext context)
 """
 
 
-def write_line(content, append=True, newlines=1):
+def write(content, append=True, indent=True):
     mode = 'a' if append else 'w'
+    indent = ' ' * 4 if indent else ''
     with open(_outfile, mode) as o:
-        o.write(content + '\n' * newlines)
+        o.write(indent + content + '\n')
 
 
 class GetRules:
@@ -79,11 +80,11 @@ class ParseRules:
 
     @staticmethod
     def header():
-        write_line(CSX_HEADER, append=False)
+        write(CSX_HEADER, append=False, indent=False)
 
     @staticmethod
     def footer():
-        write_line('\n}')
+        write('\n}', indent=False)
 
     def parse_and_write_all_rules(self):
         for app in self.komorebi_rules:
@@ -97,9 +98,10 @@ class FloatRules:
         self.float_rules = float_rules
 
     def write_rules(self):
-        write_line(''.join(('\n', ' ' * 4, '// ', self.name)))
+        write('', indent=False)
+        write('// ' + self.name)
         for r in self.float_rules:
-            FloatRule(r).write_rule()
+            FloatRule(r).add_rule()
 
 
 class FloatRule:
@@ -114,7 +116,7 @@ class FloatRule:
         if self.matching_strategy and self.matching_strategy != 'Equals':
             print('Matching strategy "{_}" unsupported')
 
-    def write_rule(self):
+    def add_rule(self):
         match self.kind:
             case 'Class':
                 command = 'AddWindowClassFilter'
@@ -124,11 +126,17 @@ class FloatRule:
                 command = 'AddTitleFilter'
             case _:
                 print('Undefined kind:' + self.kind)
-        comment = '  // ' + self.comment if self.comment else ''
-        content = ''.join(
-            [' ' * 4, 'context.FilterManager.', command, '("', self.id, '");', comment])
-        write_line(content)
+        # check for duplicates
+        content = ''.join(['context.FilterManager.', command, '("', self.id, '");'])
+        if self.id not in _processed[self.kind]:
+            comment = '  // ' + self.comment if self.comment else ''
+            write(content + comment)
+            _processed[self.kind] += [self.id]
+        else:
+            write(' '.join(('//', content, ' // duplicate rule')))
 
+
+_processed = {'Class': [], 'Exe': [], 'Title': []}
 
 # Load komorebi rules
 rules = GetRules(_url)

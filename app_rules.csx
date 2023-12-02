@@ -10,8 +10,27 @@
  *
  * This file was generated from data with the following license:
  *
- * TODO: include komorebi-application-rules license once published
+ * MIT License
  *
+ * Copyright (c) 2021 Jade Iqbal
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
  */
 
 using Whim;
@@ -91,20 +110,20 @@ void ApplicationRules(IContext context)
     context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
 
     // Microsoft Outlook
-    context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
+    // context.FilterManager.AddWindowClassFilter("_WwB");  // duplicate rule
 
     // Microsoft PC Manager
     context.FilterManager.AddProcessFileNameFilter("MSPCManager.exe");
 
     // Microsoft PowerPoint
-    context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
+    // context.FilterManager.AddWindowClassFilter("_WwB");  // duplicate rule
 
     // Microsoft Teams classic
     context.FilterManager.AddTitleFilter("Microsoft Teams Notification");  // Target Teams pop-up notification windows
     context.FilterManager.AddTitleFilter("Microsoft Teams Call");  // Target Teams call in progress windows
 
     // Microsoft Word
-    context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
+    // context.FilterManager.AddWindowClassFilter("_WwB");  // duplicate rule
 
     // Mozilla Firefox
     context.FilterManager.AddWindowClassFilter("MozillaTaskbarPreviewClass");  // Targets invisible windows spawned by Firefox to show tab previews in the taskbar
@@ -130,7 +149,7 @@ void ApplicationRules(IContext context)
     context.FilterManager.AddProcessFileNameFilter("ProcessHacker.exe");
 
     // PyCharm
-    context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and detached windows
+    // context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // duplicate rule
 
     // QQ
     context.FilterManager.AddTitleFilter("图片查看器");
@@ -144,23 +163,23 @@ void ApplicationRules(IContext context)
     context.FilterManager.AddProcessFileNameFilter("RepoZ.exe");
 
     // Rider
-    context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and floating windows
+    // context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // duplicate rule
     context.FilterManager.AddTitleFilter("PopupMessageWindow");  // Targets JetBrains IDE popups
 
     // RoundedTB
     context.FilterManager.AddProcessFileNameFilter("RoundedTB.exe");
 
     // RustRover
-    context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and floating windows
+    // context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // duplicate rule
 
     // Sideloadly
     context.FilterManager.AddProcessFileNameFilter("sideloadly.exe");
 
     // Slack
-    context.FilterManager.AddWindowClassFilter("Chrome_RenderWidgetHostHWND");  // Targets a hidden window spawned by Slack
+    // context.FilterManager.AddWindowClassFilter("Chrome_RenderWidgetHostHWND");  // duplicate rule
 
     // Slack
-    context.FilterManager.AddWindowClassFilter("Chrome_RenderWidgetHostHWND");  // Targets a hidden window spawned by Slack
+    // context.FilterManager.AddWindowClassFilter("Chrome_RenderWidgetHostHWND");  // duplicate rule
 
     // Smart Install Maker
     context.FilterManager.AddWindowClassFilter("obj_App");  // Target hidden window spawned by installer
