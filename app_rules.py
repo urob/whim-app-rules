@@ -9,6 +9,28 @@ _outfile = _root / 'app_rules.csx'
 # link to komorebi rules file
 _url = 'https://raw.githubusercontent.com/LGUG2Z/komorebi-application-specific-configuration/master/applications.yaml'
 
+CSX_HEADER = """\
+/* Application Rules for Whim
+ *
+ * USAGE INSTRUCTIONS
+ *
+ * This file is intended to be included in whim.config.csx, adding the following two lines:
+ *   #load "/path/to/app_rules.csx"  // add this near the top just below the #r directives
+ *   ApplicationRules(context);      // add this anywhere inside the DoConfig void
+ *
+ * COPYRIGHT AND PERMISSION NOTICE
+ *
+ * This file was generated from data with the following license:
+ *
+ * TODO: include komorebi-application-rules license once published
+ *
+ */
+
+using Whim;
+void ApplicationRules(IContext context)
+{\
+"""
+
 
 def write_line(content, append=True, newlines=1):
     mode = 'a' if append else 'w'
@@ -37,8 +59,12 @@ class ParseRules:
         self.komorebi_rules = komorebi_rules
 
     @staticmethod
-    def write_header():
-        write_line('// Application Rules', append=False, newlines=2)
+    def header():
+        write_line(CSX_HEADER, append=False)
+
+    @staticmethod
+    def footer():
+        write_line('\n}')
 
     def parse_and_write_all_rules(self):
         for app in self.komorebi_rules:
@@ -52,10 +78,9 @@ class FloatRules:
         self.float_rules = float_rules
 
     def write_rules(self):
-        write_line('// ' + self.name)
+        write_line(''.join(('\n', ' ' * 4, '// ', self.name)))
         for r in self.float_rules:
             FloatRule(r).write_rule()
-        write_line('')
 
 
 class FloatRule:
@@ -81,7 +106,8 @@ class FloatRule:
             case _:
                 print('Undefined kind:' + self.kind)
         comment = '  // ' + self.comment if self.comment else ''
-        content = ''.join(['context.FilterManager.', command, '("', self.id, '");', comment])
+        content = ''.join(
+            [' ' * 4, 'context.FilterManager.', command, '("', self.id, '");', comment])
         write_line(content)
 
 
@@ -92,5 +118,6 @@ rules.load()
 
 # Parse rules and convert to FilterManager commands
 parse = ParseRules(rules.rules)
-parse.write_header()
+parse.header()
 parse.parse_and_write_all_rules()
+parse.footer()

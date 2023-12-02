@@ -1,202 +1,221 @@
-// Application Rules
+/* Application Rules for Whim
+ *
+ * USAGE INSTRUCTIONS
+ *
+ * This file is intended to be included in whim.config.csx, adding the following two lines:
+ *   #load "/path/to/app_rules.csx"  // add this near the top just below the #r directives
+ *   ApplicationRules(context);      // add this anywhere inside the DoConfig void
+ *
+ * COPYRIGHT AND PERMISSION NOTICE
+ *
+ * This file was generated from data with the following license:
+ *
+ * TODO: include komorebi-application-rules license once published
+ *
+ */
 
-// 1Password
-context.FilterManager.AddProcessNameFilter("1Password.exe");
+using Whim;
+void ApplicationRules(IContext context)
+{
 
-// Ableton Live
-context.FilterManager.AddWindowClassFilter("AbletonVstPlugClass");  // Targets VST2 windows
-context.FilterManager.AddWindowClassFilter("Vst3PlugWindow");  // Targets VST3 windows
+    // 1Password
+    context.FilterManager.AddProcessNameFilter("1Password");
 
-// Affinity Photo 2
-context.FilterManager.AddProcessNameFilter("Photo.exe");
+    // Ableton Live
+    context.FilterManager.AddWindowClassFilter("AbletonVstPlugClass");  // Targets VST2 windows
+    context.FilterManager.AddWindowClassFilter("Vst3PlugWindow");  // Targets VST3 windows
 
-// AutoHotkey
-context.FilterManager.AddTitleFilter("Window Spy");
-context.FilterManager.AddProcessNameFilter("AutoHotkeyUX.exe");
+    // Affinity Photo 2
+    context.FilterManager.AddProcessNameFilter("Photo");
 
-// Bloxstrap
-context.FilterManager.AddProcessNameFilter("Bloxstrap.exe");
+    // AutoHotkey
+    context.FilterManager.AddTitleFilter("Window Spy");
+    context.FilterManager.AddProcessNameFilter("AutoHotkeyUX");
 
-// Calculator
-context.FilterManager.AddTitleFilter("Calculator");
+    // Bloxstrap
+    context.FilterManager.AddProcessNameFilter("Bloxstrap");
 
-// Citrix Receiver
-context.FilterManager.AddProcessNameFilter("SelfService.exe");
+    // Calculator
+    context.FilterManager.AddTitleFilter("Calculator");
 
-// Credential Manager UI Host
-context.FilterManager.AddProcessNameFilter("CredentialUIBroker.exe");  // Targets the Windows popup prompting you for a PIN instead of a password on 1Password etc.
+    // Citrix Receiver
+    context.FilterManager.AddProcessNameFilter("SelfService");
 
-// Delphi applications
-context.FilterManager.AddWindowClassFilter("TApplication");  // Target hidden window spawned by Delphi applications
-context.FilterManager.AddWindowClassFilter("TWizardForm");  // Target Inno Setup installers
+    // Credential Manager UI Host
+    context.FilterManager.AddProcessNameFilter("CredentialUIBroker");  // Targets the Windows popup prompting you for a PIN instead of a password on 1Password etc.
 
-// Dropbox
-context.FilterManager.AddProcessNameFilter("Dropbox.exe");
+    // Delphi applications
+    context.FilterManager.AddWindowClassFilter("TApplication");  // Target hidden window spawned by Delphi applications
+    context.FilterManager.AddWindowClassFilter("TWizardForm");  // Target Inno Setup installers
 
-// Elephicon
-context.FilterManager.AddProcessNameFilter("Elephicon.exe");
+    // Dropbox
+    context.FilterManager.AddProcessNameFilter("Dropbox");
 
-// Elgato Camera Hub
-context.FilterManager.AddProcessNameFilter("Camera Hub.exe");
+    // Elephicon
+    context.FilterManager.AddProcessNameFilter("Elephicon");
 
-// Elgato Control Center
-context.FilterManager.AddProcessNameFilter("ControlCenter.exe");
+    // Elgato Camera Hub
+    context.FilterManager.AddProcessNameFilter("Camera Hub");
 
-// Elgato Wave Link
-context.FilterManager.AddProcessNameFilter("WaveLink.exe");
+    // Elgato Control Center
+    context.FilterManager.AddProcessNameFilter("ControlCenter");
 
-// GOG Galaxy
-context.FilterManager.AddWindowClassFilter("Chrome_RenderWidgetHostHWND");  // Targets a hidden window spawned by GOG Galaxy
+    // Elgato Wave Link
+    context.FilterManager.AddProcessNameFilter("WaveLink");
 
-// Google Drive
-context.FilterManager.AddProcessNameFilter("GoogleDriveFS.exe");
+    // GOG Galaxy
+    context.FilterManager.AddWindowClassFilter("Chrome_RenderWidgetHostHWND");  // Targets a hidden window spawned by GOG Galaxy
 
-// IntelliJ IDEA
-context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and floating windows
+    // Google Drive
+    context.FilterManager.AddProcessNameFilter("GoogleDriveFS");
 
-// Keyviz
-context.FilterManager.AddProcessNameFilter("keyviz.exe");
+    // IntelliJ IDEA
+    context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and floating windows
 
-// Logi Bolt
-context.FilterManager.AddProcessNameFilter("LogiBolt.exe");
+    // Keyviz
+    context.FilterManager.AddProcessNameFilter("keyviz");
 
-// LogiTune
-context.FilterManager.AddProcessNameFilter("LogiTune.exe");
+    // Logi Bolt
+    context.FilterManager.AddProcessNameFilter("LogiBolt");
 
-// Logitech Options
-context.FilterManager.AddProcessNameFilter("LogiOptionsUI.exe");
+    // LogiTune
+    context.FilterManager.AddProcessNameFilter("LogiTune");
 
-// Microsoft Active Accessibility
-context.FilterManager.AddWindowClassFilter("#32770");  // Dialog Box
+    // Logitech Options
+    context.FilterManager.AddProcessNameFilter("LogiOptionsUI");
 
-// Microsoft Excel
-context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
+    // Microsoft Active Accessibility
+    context.FilterManager.AddWindowClassFilter("#32770");  // Dialog Box
 
-// Microsoft Outlook
-context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
+    // Microsoft Excel
+    context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
 
-// Microsoft PC Manager
-context.FilterManager.AddProcessNameFilter("MSPCManager.exe");
+    // Microsoft Outlook
+    context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
 
-// Microsoft PowerPoint
-context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
+    // Microsoft PC Manager
+    context.FilterManager.AddProcessNameFilter("MSPCManager");
 
-// Microsoft Teams classic
-context.FilterManager.AddTitleFilter("Microsoft Teams Notification");  // Target Teams pop-up notification windows
-context.FilterManager.AddTitleFilter("Microsoft Teams Call");  // Target Teams call in progress windows
+    // Microsoft PowerPoint
+    context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
 
-// Microsoft Word
-context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
+    // Microsoft Teams classic
+    context.FilterManager.AddTitleFilter("Microsoft Teams Notification");  // Target Teams pop-up notification windows
+    context.FilterManager.AddTitleFilter("Microsoft Teams Call");  // Target Teams call in progress windows
 
-// Mozilla Firefox
-context.FilterManager.AddWindowClassFilter("MozillaTaskbarPreviewClass");  // Targets invisible windows spawned by Firefox to show tab previews in the taskbar
+    // Microsoft Word
+    context.FilterManager.AddWindowClassFilter("_WwB");  // Targets a hidden window spawned by Microsoft Office applications
 
-// NohBoard
-context.FilterManager.AddProcessNameFilter("NohBoard.exe");
+    // Mozilla Firefox
+    context.FilterManager.AddWindowClassFilter("MozillaTaskbarPreviewClass");  // Targets invisible windows spawned by Firefox to show tab previews in the taskbar
 
-// OneDrive
-context.FilterManager.AddWindowClassFilter("OneDriveReactNativeWin32WindowClass");
+    // NohBoard
+    context.FilterManager.AddProcessNameFilter("NohBoard");
 
-// Paradox Launcher
-context.FilterManager.AddProcessNameFilter("Paradox Launcher.exe");
+    // OneDrive
+    context.FilterManager.AddWindowClassFilter("OneDriveReactNativeWin32WindowClass");
 
-// Playnite
-context.FilterManager.AddProcessNameFilter("Playnite.FullscreenApp.exe");  // Target fullscreen app
+    // Paradox Launcher
+    context.FilterManager.AddProcessNameFilter("Paradox Launcher");
 
-// PowerToys
-context.FilterManager.AddProcessNameFilter("PowerToys.ColorPickerUI.exe");  // Target color picker dialog
-context.FilterManager.AddProcessNameFilter("PowerToys.ImageResizer.exe");  // Target image resizer dialog
-context.FilterManager.AddProcessNameFilter("PowerToys.Peek.UI.exe");  // Target Peek popup
+    // Playnite
+    context.FilterManager.AddProcessNameFilter("Playnite.FullscreenApp");  // Target fullscreen app
 
-// Process Hacker
-context.FilterManager.AddProcessNameFilter("ProcessHacker.exe");
+    // PowerToys
+    context.FilterManager.AddProcessNameFilter("PowerToys.ColorPickerUI");  // Target color picker dialog
+    context.FilterManager.AddProcessNameFilter("PowerToys.ImageResizer");  // Target image resizer dialog
+    context.FilterManager.AddProcessNameFilter("PowerToys.Peek.UI");  // Target Peek popup
 
-// PyCharm
-context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and detached windows
+    // Process Hacker
+    context.FilterManager.AddProcessNameFilter("ProcessHacker");
 
-// QQ
-context.FilterManager.AddTitleFilter("图片查看器");
-context.FilterManager.AddTitleFilter("群聊的聊天记录");
-context.FilterManager.AddTitleFilter("语音通话");
+    // PyCharm
+    context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and detached windows
 
-// QuickLook
-context.FilterManager.AddProcessNameFilter("QuickLook.exe");
+    // QQ
+    context.FilterManager.AddTitleFilter("图片查看器");
+    context.FilterManager.AddTitleFilter("群聊的聊天记录");
+    context.FilterManager.AddTitleFilter("语音通话");
 
-// RepoZ
-context.FilterManager.AddProcessNameFilter("RepoZ.exe");
+    // QuickLook
+    context.FilterManager.AddProcessNameFilter("QuickLook");
 
-// Rider
-context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and floating windows
-context.FilterManager.AddTitleFilter("PopupMessageWindow");  // Targets JetBrains IDE popups
+    // RepoZ
+    context.FilterManager.AddProcessNameFilter("RepoZ");
 
-// RoundedTB
-context.FilterManager.AddProcessNameFilter("RoundedTB.exe");
+    // Rider
+    context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and floating windows
+    context.FilterManager.AddTitleFilter("PopupMessageWindow");  // Targets JetBrains IDE popups
 
-// RustRover
-context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and floating windows
+    // RoundedTB
+    context.FilterManager.AddProcessNameFilter("RoundedTB");
 
-// Sideloadly
-context.FilterManager.AddProcessNameFilter("sideloadly.exe");
+    // RustRover
+    context.FilterManager.AddWindowClassFilter("SunAwtDialog");  // Targets JetBrains IDE popups and floating windows
 
-// Slack
-context.FilterManager.AddWindowClassFilter("Chrome_RenderWidgetHostHWND");  // Targets a hidden window spawned by Slack
+    // Sideloadly
+    context.FilterManager.AddProcessNameFilter("sideloadly");
 
-// Slack
-context.FilterManager.AddWindowClassFilter("Chrome_RenderWidgetHostHWND");  // Targets a hidden window spawned by Slack
+    // Slack
+    context.FilterManager.AddWindowClassFilter("Chrome_RenderWidgetHostHWND");  // Targets a hidden window spawned by Slack
 
-// Smart Install Maker
-context.FilterManager.AddWindowClassFilter("obj_App");  // Target hidden window spawned by installer
-context.FilterManager.AddWindowClassFilter("obj_Form");  // Target installer
+    // Slack
+    context.FilterManager.AddWindowClassFilter("Chrome_RenderWidgetHostHWND");  // Targets a hidden window spawned by Slack
 
-// SnippingTool
-context.FilterManager.AddProcessNameFilter("SnippingTool.exe");
+    // Smart Install Maker
+    context.FilterManager.AddWindowClassFilter("obj_App");  // Target hidden window spawned by installer
+    context.FilterManager.AddWindowClassFilter("obj_Form");  // Target installer
 
-// Steam Beta
-context.FilterManager.AddTitleFilter("notificationtoasts_");  // Target notification toast popups
+    // SnippingTool
+    context.FilterManager.AddProcessNameFilter("SnippingTool");
 
-// System Informer
-context.FilterManager.AddProcessNameFilter("SystemInformer.exe");
+    // Steam Beta
+    context.FilterManager.AddTitleFilter("notificationtoasts_");  // Target notification toast popups
 
-// SystemSettings
-context.FilterManager.AddWindowClassFilter("Shell_Dialog");
+    // System Informer
+    context.FilterManager.AddProcessNameFilter("SystemInformer");
 
-// Task Manager
-context.FilterManager.AddWindowClassFilter("TaskManagerWindow");
+    // SystemSettings
+    context.FilterManager.AddWindowClassFilter("Shell_Dialog");
 
-// TouchCursor
-context.FilterManager.AddProcessNameFilter("tcconfig.exe");
+    // Task Manager
+    context.FilterManager.AddWindowClassFilter("TaskManagerWindow");
 
-// TranslucentTB
-context.FilterManager.AddProcessNameFilter("TranslucentTB.exe");
+    // TouchCursor
+    context.FilterManager.AddProcessNameFilter("tcconfig");
 
-// WinZip (32-bit)
-context.FilterManager.AddProcessNameFilter("winzip32.exe");
+    // TranslucentTB
+    context.FilterManager.AddProcessNameFilter("TranslucentTB");
 
-// WinZip (64-bit)
-context.FilterManager.AddProcessNameFilter("winzip64.exe");
+    // WinZip (32-bit)
+    context.FilterManager.AddProcessNameFilter("winzip32");
 
-// Windows Explorer
-context.FilterManager.AddWindowClassFilter("OperationStatusWindow");  // Targets copy/move operation windows
-context.FilterManager.AddTitleFilter("Control Panel");
+    // WinZip (64-bit)
+    context.FilterManager.AddProcessNameFilter("winzip64");
 
-// Windows Installer
-context.FilterManager.AddProcessNameFilter("msiexec.exe");
+    // Windows Explorer
+    context.FilterManager.AddWindowClassFilter("OperationStatusWindow");  // Targets copy/move operation windows
+    context.FilterManager.AddTitleFilter("Control Panel");
 
-// Windows Subsystem for Android
-context.FilterManager.AddWindowClassFilter("android(splash)");  // Targets splash/startup screen
+    // Windows Installer
+    context.FilterManager.AddProcessNameFilter("msiexec");
 
-// Wox
-context.FilterManager.AddTitleFilter("Hotkey sink");  // Targets a hidden window spawned by Wox
+    // Windows Subsystem for Android
+    context.FilterManager.AddWindowClassFilter("android(splash)");  // Targets splash/startup screen
 
-// Zoom
-context.FilterManager.AddProcessNameFilter("Zoom.exe");
+    // Wox
+    context.FilterManager.AddTitleFilter("Hotkey sink");  // Targets a hidden window spawned by Wox
 
-// paint.net
-context.FilterManager.AddProcessNameFilter("paintdotnet.exe");
+    // Zoom
+    context.FilterManager.AddProcessNameFilter("Zoom");
 
-// pinentry
-context.FilterManager.AddProcessNameFilter("pinentry.exe");
+    // paint.net
+    context.FilterManager.AddProcessNameFilter("paintdotnet");
 
-// ueli
-context.FilterManager.AddProcessNameFilter("ueli.exe");
+    // pinentry
+    context.FilterManager.AddProcessNameFilter("pinentry");
 
+    // ueli
+    context.FilterManager.AddProcessNameFilter("ueli");
+
+}
