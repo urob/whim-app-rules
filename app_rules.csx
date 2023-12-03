@@ -36,7 +36,6 @@
 using Whim;
 void ApplicationRules(IContext context)
 {
-    // Small file change to test automatic updating via GHA
 
     // 1Password
     context.FilterManager.AddProcessFileNameFilter("1Password.exe");
