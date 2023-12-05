@@ -38,11 +38,17 @@ void ApplicationRules(IContext context)
 {
 
     // 1Password
+    context.FilterManager.AddProcessFileNameFilter("Guitar Rig 7.exe");
+
+    // 1Password
     context.FilterManager.AddProcessFileNameFilter("1Password.exe");
 
     // Ableton Live
     context.FilterManager.AddWindowClassFilter("AbletonVstPlugClass");  // Targets VST2 windows
     context.FilterManager.AddWindowClassFilter("Vst3PlugWindow");  // Targets VST3 windows
+
+    // Adobe Premiere Pro
+    context.FilterManager.AddWindowClassFilter("DroverLord - Window Class");  // Premiere Pro effects popups
 
     // Affinity Photo 2
     context.FilterManager.AddProcessFileNameFilter("Photo.exe");
@@ -142,8 +148,10 @@ void ApplicationRules(IContext context)
 
     // PowerToys
     context.FilterManager.AddProcessFileNameFilter("PowerToys.ColorPickerUI.exe");  // Target color picker dialog
+    context.FilterManager.AddProcessFileNameFilter("PowerToys.CropAndLock.exe");  // Target thumbnail/cropped window
     context.FilterManager.AddProcessFileNameFilter("PowerToys.ImageResizer.exe");  // Target image resizer dialog
     context.FilterManager.AddProcessFileNameFilter("PowerToys.Peek.UI.exe");  // Target Peek popup
+    context.FilterManager.AddProcessFileNameFilter("PowerToys.PowerLauncher.exe");  // PpowerLauncher popup
 
     // Process Hacker
     context.FilterManager.AddProcessFileNameFilter("ProcessHacker.exe");
