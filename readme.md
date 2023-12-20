@@ -1,3 +1,5 @@
+Archiving this, as it is now part of core Whim (https://github.com/dalyIsaac/Whim/pull/649).
+
 # Whim Application Rules
 
 This parses the community-driven [application rules](https://github.com/LGUG2Z/komorebi-application-specific-configuration) for [Komorebi](https://github.com/LGUG2Z/komorebi), and generates corresponding rules for [Whim](https://github.com/dalyIsaac/Whim).
